@@ -19,7 +19,8 @@ def pets_sold(pet_shop)
 end
 
 def increase_pets_sold(pet_shop, increase_amount)
-  return pet_shop[:admin][:pets_sold] += increase_amount
+  pet_shop[:admin][:pets_sold] += increase_amount
+  return pet_shop[:admin][:pets_sold]
 end
 
 def stock_count(pet_shop)
@@ -64,9 +65,15 @@ def add_pet_to_customer(customers, new_pet)
 end
 
 def customer_can_afford_pet(customer, new_pet)
-  if customer[:cash] < new_pet[:price]
-    can_buy_pet = false
-  else
+  if customer[:cash] > new_pet[:price]
     can_buy_pet = true
+  else
+    can_buy_pet = false
   end
+end
+
+def sell_pet_to_customer(pet_shop, pet, customer)
+  return add_pet_to_customer(customer, pet)
+  increase_pets_sold(pet_shop, 1)
+  pets_sold(pet_shop)
 end
