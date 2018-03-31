@@ -74,6 +74,15 @@ end
 
 def sell_pet_to_customer(pet_shop, pet, customer)
   return add_pet_to_customer(customer, pet)
-  increase_pets_sold(pet_shop, 1)
-  pets_sold(pet_shop)
+  return increase_pets_sold(pet_shop, 1)
+  return pets_sold(pet_shop)
+  for pet_in_shop in pet_shop
+    if pet_in_shop[:name] =- pet
+      amount = pet_shop[:price]
+    end
+  end
+  return add_or_remove_cash(pet_shop, amount)
+  # return add_or_remove_cash(pet_shop, amount)
+
+
 end
