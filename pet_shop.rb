@@ -73,10 +73,10 @@ def customer_can_afford_pet(customer, new_pet)
 end
 
 def sell_pet_to_customer(pet_shop, pet, customer)
-  if find_pet_by_name == true
-    return add_pet_to_customer(customer, pet)
-    return increase_pets_sold(pet_shop, 1)
-    return pets_sold(pet_shop)
+  if pet != nil
+    add_pet_to_customer(customer, pet)
+    increase_pets_sold(pet_shop, 1)
+    pets_sold(pet_shop)
     for pet_in_shop in pet_shop
     if pet_in_shop[:name] =- pet
       amount = pet_shop[:price]
